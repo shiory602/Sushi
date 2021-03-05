@@ -1,8 +1,27 @@
+### How to set "Click event"
+
+## addEventListener
+
+```JS
+HTMLelement.addEventListener("type", ()=>{
+	...
+});
+```
+
+# I get the id from HTML button tag this time.
+
+```JS
+let btn = document.getElementById("btn");
+
+btn.addEventListener("click", ()=> {
+	console.log("hello");
+});
+```
 
 
-## How to create a button
+### How to create a button
 
-# :active
+## :active
 1. Change background color
 2. Set box-shadow and set only vertical axis.
 3. Use the :active pseudo selector to reset box-shadow, and move the button 3px above.
