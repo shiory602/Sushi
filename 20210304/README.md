@@ -1,4 +1,4 @@
-### How to set "Click event"
+# How to set "Click event"
 
 ## addEventListener
 
@@ -8,7 +8,7 @@ HTMLelement.addEventListener("type", ()=>{
 });
 ```
 
-# I get the id from HTML button tag this time.
+### I get the id from HTML button tag this time.
 
 ```JS
 let btn = document.getElementById("btn");
@@ -19,7 +19,7 @@ btn.addEventListener("click", ()=> {
 ```
 
 
-### How to create a button
+# How to create a button
 
 ## :active
 1. Change background color
