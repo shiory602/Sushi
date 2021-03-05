@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.container {
+			width: 100%;
+			margin: 30vh auto;
+			text-align: center;
+		}
+		#btn {
+			width: 200px;
+			font-size: 1.5rem;
+			padding: 1rem;
+			border-radius: 10px;
+			box-shadow: 0 3px;
+			cursor: grab;
+		}
+		#btn:active {
+			box-shadow: none;
+			position: relative;
+			top: 3px;
+			outline: none;
+		}
+		label{
+			padding-top: 30px;
+			font-size: 1.5rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form id="form">
+			<label>Message: <input type="text" id="text"/></label>
+			<br><br>
+			<input type="submit" value="Submit" id="btn"/>
+		</form>
+
+		<script>
+
+			const form = document.getElementById("form");
+			const text = document.getElementById("text");
+
+			form.addEventListener("submit", () => {
+				console.log(`Form Submitted! Your message is "${text.value}" :)`);
+				event.preventDefault();
+			});
+
+		</script>
+	</div>
+</body>
+</html>
