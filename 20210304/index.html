@@ -5,13 +5,45 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<style>
+		.container {
+			width: 100vw;
+			margin: 10vh auto;
+			text-align: center;
+		}
+		#btn {
+			width: 300px;
+			margin: auto;
+			padding: 2rem 4rem;
+			font-size: 2rem;
+			font-weight: 800;
+			background-color: lightgray;
+			box-shadow: 0px 3px gray;
+			cursor: pointer;
+			line-height: 30px;
+		}
+		#btn:active {
+			box-shadow: none;
+			position: relative;
+			top: 3px;
+		}
+		p{
+			padding-top: 30px;
+			font-size: 1.5rem;
+
+		}
+	</style>
 </head>
 <body>
-	<button id="btn">Click here!</button>
+<div class="container">
+	<p id="btn">Click here!</p>
 
+	<p>alt + command + I</p>
+</div>
+	
 	<script>
 		let btn = document.getElementById("btn");
-
+		
 		btn.addEventListener("click", ()=> {
 			console.log("hello");
 		});
