@@ -33,8 +33,8 @@ form.addEventListener("submit", (event) => {
 ```Git
 git checkout -b 20210305 origin/main
 ```
-`20210305` --> branch name  
-`origin/main` --> default branch name  
+`20210305` --> branch name  <br>
+`origin/main` --> default branch name  <br>
 Make sure to do `git push -u origin master` after making a new branch.
 
 # Check all branches in both remote and local.
