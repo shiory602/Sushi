@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.container {
+			width: 100%;
+			margin: 30vh auto;
+			text-align: center;
+		}
+		.form-box {
+			width: 500px;
+			margin: auto;
+			padding: 80px;
+			background: lightyellow;
+			border: 1px solid lightgray;
+		}
+		#btn {
+			width: 200px;
+			font-size: 1.5rem;
+			padding: 1rem;
+			border-radius: 10px;
+			box-shadow: 0 3px;
+			cursor: grab;
+		}
+		#btn:active {
+			box-shadow: none;
+			position: relative;
+			top: 3px;
+			outline: none;
+		}
+		label, #msg{
+			padding-top: 30px;
+			font-size: 1.5rem;
+		}
+		#text {
+			font-size: 1.2rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="form-box">
+			<form id="form">
+				<label>Message: <input type="text" id="text"/></label>
+				<br><br>
+				<input type="submit" value="Submit" id="btn"/>
+			</form>
+			<div id="msg"></div>
+		</div>
+
+		<script>
+
+			const form = document.getElementById("form");
+			const text = document.getElementById("text");
+			const msg = document.getElementById("msg");
+
+			form.addEventListener("submit", (event) => {
+				if (text.value) {
+					console.log(`Form Submitted! Your message is "${text.value}" :)`);
+				} else {
+					msg.innerHTML = "Write a message please :)";
+				}
+				event.preventDefault();
+				setTimeout(() => {
+					msg.innerHTML = "";
+				}, 2000);
+			});
+
+		</script>
+	</div>
+</body>
+</html>
