@@ -31,15 +31,17 @@
 
 		submit.addEventListener("click", (e) => {
 			if (commaInput.value) {
+				ul.innerHTML = "";
 				// let li = document.createElement("li");
 				let resArray = commaInput.value.split(",");
 				for(let i = 0; i < resArray.length; i++) {
 					let li = document.createElement("li");
-					li.textContent = resArray[i];
-					listContent = li.textContent.trim();
-					li.title = listContent; //hover時にtooltipが出てくる
+					li.textContent = resArray[i].trim();
+					li.title = li.textContent;
+					//hover時にtooltipが出てくる
 					ul.appendChild(li);
 				}
+				commaInput.value = "";
 			} else {
 				list.innerHTML = "Please write a message :)";
 				setTimeout(() => {
