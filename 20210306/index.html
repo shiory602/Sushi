@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="form-list">
+			<form>
+				<label>
+					<p>Enter a comma-separated string of characters.</p>
+					<input type="text" id="commaInput"/>
+				</label>
+				<input type="button" value="Submit" id="submit"/>
+			</form>
+			<div id="list">
+			</div>
+		</div>
+	</div>
+
+	<script>
+		let commaInput = document.getElementById("commaInput");
+		let submit = document.getElementById("submit");
+		let list = document.getElementById("list")
+		let inputArray = "";
+		
+		let ul = document.createElement("ul");
+		list.appendChild(ul);
+
+		submit.addEventListener("click", (e) => {
+			if (commaInput.value) {
+				let li = document.createElement("li");
+				let resArray = commaInput.value.split(",");
+				li.textContent += resArray.trim();
+				ul.appendChild(li);
+			} else {
+				list.innerHTML = "Please write a message :)";
+				setTimeout(() => {
+					list.innerHTML = "";
+				}, 2000);
+			}
+			event.preventDefault();
+		})
+	</script>
+</body>
+</html>
