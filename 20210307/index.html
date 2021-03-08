@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Practice</title>
+</head>
+<body>
+	<div class="container">
+		<div class="form-list">
+			<form>
+				<label>
+					<p>Enter a comma-separated string of characters.</p>
+					<input type="text" id="textInput"/>
+				</label>
+				<input type="button" value="submit" id="submit"/>
+			</form>
+			<div id="error"></div>
+			<div id="list"></div>
+		</div>
+	</div>
+
+	<script>
+		let textInput = document.getElementById("textInput");
+		let submit = document.getElementById("submit");
+		let error = document.getElementById("error");
+		let list = document.getElementById("list");
+
+		let ul = document.createElement("ul");
+		list.appendChild(ul);
+
+		submit.addEventListener(("click"), (evt) => {
+			if (textInput.value) {
+				ul.innerHTML = "";
+				let listItem = textInput.value.split(",");
+				for (let i = 0; i < listItem.length; i++) {
+					let li = document.createElement("li");
+					li.textContent = listItem[i].trim();
+					li.title = li.textContent;
+					ul.appendChild(li);
+				}
+				textInput.value = "";
+			} else {
+				error.innerHTML = "Please write a strings :)";
+				setTimeout(() => {
+					error.innerHTML = "";
+				}, 2000);
+			}
+			event.preventDefault();
+		})
+	</script>
+</body>
+</html>
