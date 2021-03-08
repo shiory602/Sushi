@@ -9,12 +9,12 @@
 <body>
 	<div class="container">
 		<div class="form-list">
-			<form>
+			<form id="submit">
 				<label>
 					<p>Enter a comma-separated string of characters.</p>
 					<input type="text" id="textInput"/>
 				</label>
-				<input type="button" value="submit" id="submit"/>
+				<input type="submit" value="submit"/>
 			</form>
 			<div id="error"></div>
 			<div id="list"></div>
@@ -30,7 +30,8 @@
 		let ul = document.createElement("ul");
 		list.appendChild(ul);
 
-		submit.addEventListener(("click"), (evt) => {
+		submit.addEventListener("submit", (evt) => {
+			event.preventDefault(); //フォーム送信を停止
 			if (textInput.value) {
 				ul.innerHTML = "";
 				let listItem = textInput.value.split(",");
@@ -47,7 +48,6 @@
 					error.innerHTML = "";
 				}, 2000);
 			}
-			event.preventDefault();
 		})
 	</script>
 </body>
