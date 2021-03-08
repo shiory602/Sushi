@@ -25,17 +25,21 @@
 		let commaInput = document.getElementById("commaInput");
 		let submit = document.getElementById("submit");
 		let list = document.getElementById("list")
-		let inputArray = "";
 		
 		let ul = document.createElement("ul");
 		list.appendChild(ul);
 
 		submit.addEventListener("click", (e) => {
 			if (commaInput.value) {
-				let li = document.createElement("li");
+				// let li = document.createElement("li");
 				let resArray = commaInput.value.split(",");
-				li.textContent += resArray.trim();
-				ul.appendChild(li);
+				for(let i = 0; i < resArray.length; i++) {
+					let li = document.createElement("li");
+					li.textContent = resArray[i];
+					listContent = li.textContent.trim();
+					li.title = listContent; //hover時にtooltipが出てくる
+					ul.appendChild(li);
+				}
 			} else {
 				list.innerHTML = "Please write a message :)";
 				setTimeout(() => {
