@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>20210308</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Courier New', Courier, monospace;
+		}
+
+		.container {
+			width: 100%;
+			margin: 100px auto;
+			text-align: center;
+		}
+
+		form {
+			width: 500px;
+			margin: 30px auto;
+			padding: 40px 0;
+			border: 2px solid lightpink;
+		}
+
+		.btn {
+			margin-top: 30px;
+			padding: 10px 60px;
+			border: none;
+			outline: none;
+			color: rgb(40, 45, 51);
+			font-size: 1.2rem;
+			font-weight: 300;
+			box-shadow: 0 4px rgba(0, 0, 0, 0.4);
+		}
+
+		.btn:focus {
+			box-shadow: none;
+			position: relative;
+			top: 4px;
+		}
+
+		ul>li {
+			width: 400px;
+			margin: auto;
+			list-style: none;
+			border-bottom: 1px dotted rosybrown;
+		}
+
+		ul>li>span {
+			font-size: 0.8rem;
+			color: #888888;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<form id="submit">
+			<label for="name">Name: </label>
+			<input type="text" id="name" />
+			<br /><br />
+			<label for="age">Age: </label>
+			<input type="number" id="age" />
+			<br />
+			<button type="submit" class="btn">Add</button>
+		</form>
+		<div id="list"></div>
+	</div>
+
+	<script>
+		let name = document.getElementById("name");
+		let age = document.getElementById("age");
+		let list = document.getElementById("list");
+		let error = document.getElementById("error");
+
+		let ul = document.createElement("ul")
+		list.appendChild(ul);
+
+		submit.addEventListener("submit", (e) => {
+			event.preventDefault();
+			if (name.value && age.value) {
+				let li = document.createElement("li");
+				li.innerHTML = `${name.value}<span>(${age.value})</span>`;
+				ul.appendChild(li);
+				name.value = "";
+				age.value = "";
+			} else {
+				alert("fill out all please :)");
+			}
+		})
+	</script>
+</body>
+
+</html>
