@@ -13,7 +13,10 @@ git checkout -b 20210305 origin/main
 - `20210305` --> branch name
 - `origin/main` --> default branch name
 
-Make sure to do `git push -u origin 20210305` after making a new branch.
+Make sure to do `git push` after making a new branch.
+```Git
+git push -u origin 20210305
+```
 
 # Check all branches in both remote and local.
 ```Git
