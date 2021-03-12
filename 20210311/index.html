@@ -98,9 +98,8 @@
 				li.innerHTML = `${name.value}(<span>${age.value}</span>)`;
 				ul.appendChild(li);
 				for (let i = 0; i < ageSpan.length; i++) {
-					if(age.value > ageSpan[i].value) {
-						ageSpan.sort();
-					}
+					console.log(ageSpan[i].innerHTML);
+						ageSpan[i].innerHTML.sort();
 				}
 				name.value = "";
 				age.value = "";
