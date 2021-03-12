@@ -10,13 +10,13 @@ const form = document.getElementById("form"); // form button
 const text = document.getElementById("text"); // input text
 const msg = document.getElementById("msg"); // where the error msg shows up
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", (evt) => {
 	if (text.value) {
 		console.log(`Form Submitted! Your message is "${text.value}" :)`);
 	} else {
 		msg.innerHTML = "Write a message please :)";
 	}
-	event.preventDefault();
+	evt.preventDefault();
 	setTimeout(() => {
 		msg.innerHTML = "";
 	}, 2000);

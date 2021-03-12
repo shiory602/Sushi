@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>プロフィールリスト（ソート機能付）</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.container {
+			width: 100%;
+			margin: 100px auto;
+			text-align: center;
+			display: flex;
+			justify-content: space-between;
+			align-content: center;
+			flex-direction: column;
+		}
+
+		form {
+			width: 300px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+
+		.btn {
+			width: 100px;
+			margin: 10px auto;
+			padding: 7px 3px;
+			background-color: tomato;
+			outline: none;
+			border: none;
+			border-radius: 20px;
+			color: antiquewhite;
+		}
+
+		#list {
+			margin-top: 20px;
+			width: 80%;
+			margin: auto;
+			border-top: 2px solid salmon;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		li {
+			width: 60%;
+			margin: auto;
+			margin-top: 10px;
+			padding: 5px 10px;
+			border: 2px dotted orange;
+		}
+
+		li > span {
+			font-size: 0.8rem;
+			color: lightslategray;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form id="add">
+			<div class="name-form">
+				<label for="name">Name: </label>
+				<input type="text" id="name"/>
+			</div>
+			<div class="age-form">
+				<label for="age">Age: </label>
+				<input type="text" id="age"/>
+			</div>
+			<button type="submit" class="btn">Add</button>
+		</form>
+		<div id="list"></div>
+	</div>
+
+	<script>
+		let name = document.getElementById("name");
+		let age = document.getElementById("age");
+		let list = document.getElementById("list");
+
+		let ul = document.createElement("ul");
+		list.appendChild(ul);
+
+
+		add.addEventListener("submit", ()=> {
+			event.preventDefault();
+			if (name.value && age.value) {
+				let li = document.createElement("li");
+				let ageSpan = document.getElementsByTagName("span");
+				li.innerHTML = `${name.value}(<span>${age.value}</span>)`;
+				ul.appendChild(li);
+				for (let i = 0; i < ageSpan.length; i++) {
+					if(age.value > ageSpan[i].value) {
+						ageSpan.sort();
+					}
+				}
+				name.value = "";
+				age.value = "";
+			} else {
+				alert("Please enter both forms :)");
+			}
+		})
+
+	</script>
+</body>
+</html>
