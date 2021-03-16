@@ -123,14 +123,24 @@
 		let ul = document.createElement("ul");
 		list.appendChild(ul);
 
+		let arr = new Array();
+
+
 		// for adding list
 		add.addEventListener("submit", () => {
 			event.preventDefault();
 			if (name.value && age.value) {
 				let li = document.createElement("li");
 				let ageSpan = document.getElementsByTagName("span");
-				li.innerHTML = `<p title="${age.value}">${name.value}(<span>${age.value}</span>)</p>`;
+				li.innerHTML = `${name.value}(<span>${age.value}</span>)`;
+				// li.setAttribute("title", age.value);
 				ul.appendChild(li);
+
+				let obj = new Object();
+				obj.key = age.value;
+				obj.value = li;
+				arr.push(obj);
+
 				name.value = "";
 				age.value = "";
 			} else {
@@ -139,22 +149,18 @@
 		})
 
 		
-		let li = document.getElementsByTagName("li");
-		let arr = new Array(li);
+		// let arr = new Array();
+		// let li = document.getElementsByTagName("li");
 		
-		function sortFunc() {
-			for (let i = 0; i < li.length; i++) {
-				let span = document.querySelector("span");
-				arr[i] = new Object();
-				// span要素の値をkeyにセット。
-				arr[i].key = span.value;
-				// li要素をvalueにセット。
-				arr[i].value = li;
-			}
-		}
+		// for (let i = 0; i < arr.length; i++) {
+		// 	arr[i] = new Object();
+		// 		// span要素の値をkeyにセット。
+		// 		arr[i].key = li.firstElementChild.title;
+		// 		// li要素をvalueにセット。
+		// 		arr[i].value = li;
+		// }
 
 			descBtn.addEventListener("click", () => {
-				sortFunc();
 				arr.sort(sortDesc);
 				for (let i = 0; i < arr.length; i++) {
 					ul.appendChild(arr[i].value);
@@ -162,7 +168,6 @@
 			});
 
 			ascBtn.addEventListener("click", () => {
-				sortFunc();
 				arr.sort(sortAsc);
 				for (let i = 0; i < arr.length; i++) {
 					ul.appendChild(arr[i].value);
