@@ -28,7 +28,7 @@
 			margin: 0 auto;
 			margin-bottom: 20px;
 		}
-		.name-form, .age-form {
+		.name-field, .age-field {
 			margin-right: 70px;
 			text-align: right;
 		}
@@ -84,7 +84,7 @@
 			border: 2px dotted orange;
 		}
 
-		li > p > span {
+		li > span {
 			font-size: 0.8rem;
 			color: lightslategray;
 		}
@@ -94,11 +94,11 @@
 <body>
 	<div class="container">
 		<form id="add">
-			<div class="name-form">
+			<div class="name-field">
 				<label for="name">Name: </label>
 				<input type="text" id="name" />
 			</div>
-			<div class="age-form">
+			<div class="age-field">
 				<label for="age">Age: </label>
 				<input type="text" id="age" />
 			</div>
@@ -129,36 +129,25 @@
 		// for adding list
 		add.addEventListener("submit", () => {
 			event.preventDefault();
-			if (name.value && age.value) {
+			if (!name.value || !age.value) {
+				alert("Please enter both forms :)");
+				return;
+			}
 				let li = document.createElement("li");
 				let ageSpan = document.getElementsByTagName("span");
 				li.innerHTML = `${name.value}(<span>${age.value}</span>)`;
-				// li.setAttribute("title", age.value);
 				ul.appendChild(li);
 
-				let obj = new Object();
-				obj.key = age.value;
-				obj.value = li;
+				let obj = {
+					key: age.value,
+					value: li,
+				};
 				arr.push(obj);
 
 				name.value = "";
 				age.value = "";
-			} else {
-				alert("Please enter both forms :)");
-			}
 		})
 
-		
-		// let arr = new Array();
-		// let li = document.getElementsByTagName("li");
-		
-		// for (let i = 0; i < arr.length; i++) {
-		// 	arr[i] = new Object();
-		// 		// span要素の値をkeyにセット。
-		// 		arr[i].key = li.firstElementChild.title;
-		// 		// li要素をvalueにセット。
-		// 		arr[i].value = li;
-		// }
 
 			descBtn.addEventListener("click", () => {
 				arr.sort(sortDesc);
