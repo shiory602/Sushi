@@ -28,7 +28,9 @@
 			margin: 0 auto;
 			margin-bottom: 20px;
 		}
-		.name-field, .age-field {
+
+		.name-field,
+		.age-field {
 			margin-right: 70px;
 			text-align: right;
 		}
@@ -43,6 +45,7 @@
 			border-radius: 20px;
 			color: antiquewhite;
 		}
+
 		.btn:hover {
 			filter: brightness(90%);
 		}
@@ -52,7 +55,8 @@
 			flex-direction: row;
 			justify-content: center;
 		}
-		.order-btn > button {
+
+		.order-btn>button {
 			margin: 10px;
 			padding: 3px 4px;
 			background-color: coral;
@@ -61,7 +65,8 @@
 			border-radius: 5px;
 			color: antiquewhite;
 		}
-		.order-btn > button:hover {
+
+		.order-btn>button:hover {
 			filter: grayscale(50%);
 		}
 
@@ -84,7 +89,7 @@
 			border: 2px dotted orange;
 		}
 
-		li > span {
+		li>span {
 			font-size: 0.8rem;
 			color: lightslategray;
 		}
@@ -133,45 +138,44 @@
 				alert("Please enter both forms :)");
 				return;
 			}
-				let li = document.createElement("li");
-				let ageSpan = document.getElementsByTagName("span");
-				li.innerHTML = `${name.value}(<span>${age.value}</span>)`;
-				ul.appendChild(li);
+			let li = document.createElement("li");
+			let ageSpan = document.getElementsByTagName("span");
+			li.innerHTML = `${name.value}(<span>${age.value}</span>)`;
+			ul.appendChild(li);
 
-				let obj = {
-					key: age.value,
-					value: li,
-				};
-				arr.push(obj);
+			let obj = {
+				key: age.value,
+				value: li,
+			};
+			arr.push(obj);
 
-				name.value = "";
-				age.value = "";
+			name.value = "";
+			age.value = "";
 		})
 
 
-			descBtn.addEventListener("click", () => {
-				arr.sort(sortDesc);
-				for (let i = 0; i < arr.length; i++) {
-					ul.appendChild(arr[i].value);
-				}
-			});
-
-			ascBtn.addEventListener("click", () => {
-				arr.sort(sortAsc);
-				for (let i = 0; i < arr.length; i++) {
-					ul.appendChild(arr[i].value);
-				}
-			});
-
-			// "key"プロパティで降順ソートする関数
-			let sortDesc = (a, b) => {
-				return b.key.localeCompare(a.key);
+		descBtn.addEventListener("click", () => {
+			arr.sort(sortDesc);
+			for (let i = 0; i < arr.length; i++) {
+				ul.appendChild(arr[i].value);
 			}
-			// "key"プロパティで昇順ソートする関数
-			let sortAsc = (a, b) => {
-				return a.key.localeCompare(b.key);
-			}
+		});
 
+		ascBtn.addEventListener("click", () => {
+			arr.sort(sortAsc);
+			for (let i = 0; i < arr.length; i++) {
+				ul.appendChild(arr[i].value);
+			}
+		});
+
+		// "key"プロパティで降順ソートする関数
+		let sortDesc = (a, b) => {
+			return b.key.localeCompare(a.key);
+		}
+		// "key"プロパティで昇順ソートする関数
+		let sortAsc = (a, b) => {
+			return a.key.localeCompare(b.key);
+		}
 	</script>
 </body>
 
