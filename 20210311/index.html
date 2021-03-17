@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +29,12 @@
 			margin-bottom: 20px;
 		}
 
+		.name-field,
+		.age-field {
+			margin-right: 70px;
+			text-align: right;
+		}
+
 		.btn {
 			width: 100px;
 			margin: 10px auto;
@@ -37,6 +44,30 @@
 			border: none;
 			border-radius: 20px;
 			color: antiquewhite;
+		}
+
+		.btn:hover {
+			filter: brightness(90%);
+		}
+
+		.order-btn {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+
+		.order-btn>button {
+			margin: 10px;
+			padding: 3px 4px;
+			background-color: coral;
+			outline: none;
+			border: none;
+			border-radius: 5px;
+			color: antiquewhite;
+		}
+
+		.order-btn>button:hover {
+			filter: grayscale(50%);
 		}
 
 		#list {
@@ -58,56 +89,94 @@
 			border: 2px dotted orange;
 		}
 
-		li > span {
+		li>span {
 			font-size: 0.8rem;
 			color: lightslategray;
 		}
-
 	</style>
 </head>
+
 <body>
 	<div class="container">
 		<form id="add">
-			<div class="name-form">
+			<div class="name-field">
 				<label for="name">Name: </label>
-				<input type="text" id="name"/>
+				<input type="text" id="name" />
 			</div>
-			<div class="age-form">
+			<div class="age-field">
 				<label for="age">Age: </label>
-				<input type="text" id="age"/>
+				<input type="text" id="age" />
 			</div>
 			<button type="submit" class="btn">Add</button>
 		</form>
+
+		<div class="order-btn">
+			<button id="ascBtn">昇順ソート</button>
+			<button id="descBtn">降順ソート</button>
+		</div>
 		<div id="list"></div>
+
 	</div>
 
 	<script>
 		let name = document.getElementById("name");
 		let age = document.getElementById("age");
 		let list = document.getElementById("list");
+		let descBtn = document.getElementById("descBtn");
+		let ascBtn = document.getElementById("ascBtn");
 
 		let ul = document.createElement("ul");
 		list.appendChild(ul);
 
+		let arr = new Array();
 
-		add.addEventListener("submit", ()=> {
+
+		// for adding list
+		add.addEventListener("submit", () => {
 			event.preventDefault();
-			if (name.value && age.value) {
-				let li = document.createElement("li");
-				let ageSpan = document.getElementsByTagName("span");
-				li.innerHTML = `${name.value}(<span>${age.value}</span>)`;
-				ul.appendChild(li);
-				for (let i = 0; i < ageSpan.length; i++) {
-					console.log(ageSpan[i].innerHTML);
-						ageSpan[i].innerHTML.sort();
-				}
-				name.value = "";
-				age.value = "";
-			} else {
+			if (!name.value || !age.value) {
 				alert("Please enter both forms :)");
+				return;
 			}
+			let li = document.createElement("li");
+			let ageSpan = document.getElementsByTagName("span");
+			li.innerHTML = `${name.value}(<span>${age.value}</span>)`;
+			ul.appendChild(li);
+
+			let obj = {
+				key: age.value,
+				value: li,
+			};
+			arr.push(obj);
+
+			name.value = "";
+			age.value = "";
 		})
 
+
+		descBtn.addEventListener("click", () => {
+			arr.sort(sortDesc);
+			for (let i = 0; i < arr.length; i++) {
+				ul.appendChild(arr[i].value);
+			}
+		});
+
+		ascBtn.addEventListener("click", () => {
+			arr.sort(sortAsc);
+			for (let i = 0; i < arr.length; i++) {
+				ul.appendChild(arr[i].value);
+			}
+		});
+
+		// "key"プロパティで降順ソートする関数
+		let sortDesc = (a, b) => {
+			return b.key.localeCompare(a.key);
+		}
+		// "key"プロパティで昇順ソートする関数
+		let sortAsc = (a, b) => {
+			return a.key.localeCompare(b.key);
+		}
 	</script>
 </body>
+
 </html>
