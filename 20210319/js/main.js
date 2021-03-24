@@ -16,7 +16,6 @@ addList.addEventListener("submit", (e) => {
 	}
 	let li = document.createElement("li");
 	li.innerHTML = `<p id="nameItem" onclick="nameFunction('${names.value}')">${names.value}</p>(<span id="ageItem" onclick="ageFunction('${age.value}')">${age.value}</span>)`;
-	console.log(li);
 	ul.appendChild(li);
 
 	let obj = {
@@ -70,3 +69,4 @@ function ageFunction(e) {
     document.getElementById("ageItem").innerText = personAge;
   }
 }
+//////////////////////////////////////////////////////////////
