@@ -39,18 +39,18 @@ addList.addEventListener("submit", (e) => {
 		names.value = "";
 		age.value = "";
 	}
+	console.log(arr);
 });
 
 // Add event ///////////////////////////////////////////
 ascBtn.addEventListener("click", () => {
 	arr.sort(sortAsc);
+	console.log(arr);
 	for (let i = 0; i < arr.length; i++) {
 		ul.appendChild(arr[i].value);
 	}
 });
-////////////////////////////////////////////////////////
 
-// Sort event //////////////////////////////////////////
 let sortAsc = (a, b) => {
 	return a.key.localeCompare(b.key);
 }
