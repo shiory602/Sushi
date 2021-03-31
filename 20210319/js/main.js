@@ -19,8 +19,8 @@ addList.addEventListener("submit", (e) => {
 	ul.appendChild(li);
 
 
-	let elName = document.querySelectorAll("#elName");
-	let elAge = document.querySelectorAll("#elAge");
+	let elName = li.querySelectorAll("#elName");
+	let elAge = li.querySelectorAll("#elAge");
 	if (elName) {
 		elName.forEach(elName => {
 			elName.addEventListener("click", nameFunction);
@@ -77,9 +77,10 @@ function nameFunction(e) {
 	/** @type {HTMLElement} */
 	const elName = e.currentTarget;
 	let personsName = prompt("You can edit the name here!", elName.textContent);
-	if (elName != null) {
-		elName.innerHTML = personsName;
+	if (!elName) {
+		alert("Please write your name.");
 	}
+	elName.innerHTML = personsName;
 }
 
 function ageFunction(e) {
