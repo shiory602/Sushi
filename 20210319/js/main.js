@@ -78,7 +78,7 @@ function nameFunction(e) {
 	const elName = e.currentTarget;
 	let personsName = prompt("You can edit the name here!", elName.textContent);
 	if (!personsName) {
-		alert("Please write your name.");
+		alert("Please type your name.");
 		personsName = prompt("You can edit the name here!", elName.textContent);
 	}
 	elName.innerHTML = personsName;
@@ -88,7 +88,7 @@ function ageFunction(e) {
 	let elAge = e.currentTarget;
 	let personsAge = prompt("You can edit the age here!", elAge.textContent);
 	if (!personsAge) {
-		alert("Please write your age.");
+		alert("Please type your age.");
 		personsAge = prompt("You can edit the age here!", elAge.textContent);
 	}
 	elAge.innerHTML = personsAge;
