@@ -15,18 +15,18 @@ addList.addEventListener("submit", (e) => {
 		return;
 	}
 	let li = document.createElement("li");
-	li.innerHTML = `<p id="nameItem">${names.value}</p>(<span id="ageItem"')">${age.value}</span>)`;
+	li.innerHTML = `<p id="elName">${names.value}</p>(<span id="elAge"')">${age.value}</span>)`;
 	ul.appendChild(li);
 
 
-	let nameItem = document.querySelectorAll("#nameItem");
-	let ageItem = document.querySelectorAll("#ageItem");
-	if (nameItem) {
-		nameItem.forEach(elName => {
+	let elName = document.querySelectorAll("#elName");
+	let elAge = document.querySelectorAll("#elAge");
+	if (elName) {
+		elName.forEach(elName => {
 			elName.addEventListener("click", nameFunction);
 		});
 
-		ageItem.forEach(elAge => {
+		elAge.forEach(elAge => {
 			elAge.addEventListener("click", ageFunction);
 		})
 
