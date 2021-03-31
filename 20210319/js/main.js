@@ -15,19 +15,31 @@ addList.addEventListener("submit", (e) => {
 		return;
 	}
 	let li = document.createElement("li");
-	li.innerHTML = `<p id="nameItem" onclick="nameFunction('${names.value}')">${names.value}</p>(<span id="ageItem" onclick="ageFunction('${age.value}')">${age.value}</span>)`;
+	li.innerHTML = `<p id="nameItem">${names.value}</p>(<span id="ageItem"')">${age.value}</span>)`;
 	ul.appendChild(li);
 
-	let obj = {
-		key: age.value,
-		value: li,
+
+	let nameItem = document.querySelectorAll("#nameItem");
+	let ageItem = document.querySelectorAll("#ageItem");
+	if (nameItem) {
+		nameItem.forEach(elName => {
+			elName.addEventListener("click", nameFunction);
+		});
+
+		ageItem.forEach(elAge => {
+			elAge.addEventListener("click", ageFunction);
+		})
+
+		let obj = {
+			key: age.value,
+			value: li,
+		}
+		arr.push(obj);
+
+		names.value = "";
+		age.value = "";
 	}
-	arr.push(obj);
-
-	names.value = "";
-	age.value = "";
-})
-
+});
 
 // Add event ///////////////////////////////////////////
 ascBtn.addEventListener("click", () => {
@@ -35,7 +47,7 @@ ascBtn.addEventListener("click", () => {
 	for (let i = 0; i < arr.length; i++) {
 		ul.appendChild(arr[i].value);
 	}
-})
+});
 ////////////////////////////////////////////////////////
 
 // Sort event //////////////////////////////////////////
@@ -55,18 +67,26 @@ let sortDesc = (a, b) => {
 }
 ////////////////////////////////////////////////////////
 
-// edit event /////////////////////////////////////////
+
+/**
+ * 
+ * @param {MouseEvent} e 
+ */
 function nameFunction(e) {
-	let personName = prompt("You can edit the name here!", e);
-	if (personName != null) {
-    document.getElementById("nameItem").innerText = personName;
-  }
+	// eからクリックした要素を得る
+	/** @type {HTMLElement} */
+	const elName = e.currentTarget;
+	let personsName = prompt("You can edit the name here!", elName.textContent);
+	if (elName != null) {
+		elName.innerHTML = personsName;
+	}
 }
 
 function ageFunction(e) {
-	let personAge = prompt("You can edit the age here!", e);
-	if (personAge != null) {
-    document.getElementById("ageItem").innerText = personAge;
-  }
+	let elAge = e.currentTarget;
+	let personsAge = prompt("You can edit the age here!", elAge.textContent);
+	if (personsAge != null) {
+		elAge.innerHTML = personsAge;
+	}
 }
 //////////////////////////////////////////////////////////////
