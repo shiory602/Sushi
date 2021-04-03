@@ -53,7 +53,7 @@ function nameFunction(e) {
 }
 ```
 
-### Chips
+### Tips
 
 querySelector() は document だけじゃなくて要素からも利用可能。
 
