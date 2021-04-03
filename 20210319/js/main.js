@@ -19,8 +19,8 @@ addList.addEventListener("submit", (e) => {
 	ul.appendChild(li);
 
 
-	let elName = li.querySelectorAll("#elName");
-	let elAge = li.querySelectorAll("#elAge");
+	let elName = li.querySelector("#elName");
+	let elAge = li.querySelector("#elAge");
 	if (elName) {
 		elName.forEach(elName => {
 			elName.addEventListener("click", nameFunction);
