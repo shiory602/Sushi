@@ -52,7 +52,7 @@ ascBtn.addEventListener("click", () => {
 });
 
 let sortAsc = (a, b) => {
-	return a.key.localeCompare(b.key);
+	return a.key - b.key;
 }
 
 descBtn.addEventListener("click", () => {
@@ -63,7 +63,7 @@ descBtn.addEventListener("click", () => {
 })
 
 let sortDesc = (a, b) => {
-	return b.key.localeCompare(a.key);
+	return b.key - a.key;
 }
 ////////////////////////////////////////////////////////
 
