@@ -21,25 +21,22 @@ addList.addEventListener("submit", (e) => {
 
 	let elName = li.querySelector("#elName");
 	let elAge = li.querySelector("#elAge");
-	if (elName) {
-		elName.forEach(elName => {
-			elName.addEventListener("click", nameFunction);
-		});
+	elName.forEach(elName => {
+		elName.addEventListener("click", nameFunction);
+	});
 
-		elAge.forEach(elAge => {
-			elAge.addEventListener("click", ageFunction);
-		})
+	elAge.forEach(elAge => {
+		elAge.addEventListener("click", ageFunction);
+	})
 
-		let obj = {
-			key: age.value,
-			value: li,
-		}
-		arr.push(obj);
-
-		names.value = "";
-		age.value = "";
+	let obj = {
+		key: age.value,
+		value: li,
 	}
-	console.log(arr);
+	arr.push(obj);
+
+	names.value = "";
+	age.value = "";
 });
 
 // Add event ///////////////////////////////////////////
