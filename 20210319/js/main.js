@@ -78,8 +78,7 @@ function nameFunction(e) {
 	const elName = e.currentTarget;
 	let personsName = prompt("You can edit the name here!", elName.textContent);
 	if (!personsName) {
-		alert("Please type your name.");
-		personsName = prompt("You can edit the name here!", elName.textContent);
+		return;
 	}
 	elName.innerHTML = personsName;
 }
