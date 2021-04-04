@@ -41,6 +41,22 @@ Use `arr.sort((v, u) => v - u);` is for `Number`.
 
 If you want to sort `String`, use `arr.sort((v, u) => v.localeCompare(u));`
 
+### Tips💡
+
+`<input type="number">`の場合は`el.value`の代わりに`el.valueAsNumber`が利用できる。
+
+```HTML
+<input id="elText" type="text" value="123" />
+<input id="elNumber" type="text" value="123" />
+```
+
+```JS
+elText.value // => "123"
+elText.valueAsNumber // => NaN
+elNumber.value // => "123"
+elNumber.valueAsNumber // => 123
+```
+
 # ボタンを押すと昇順・降順に並び替え
 
 ```js
