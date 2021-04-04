@@ -20,7 +20,7 @@ addList.addEventListener("submit", (e) => {
 
 
 	let elName = li.querySelectorAll("#elName");
-	let elAge = li.querySelectorAll("#elAge");
+	let elAge = li.querySelector("#elAge");
 	elName.forEach(elName => {
 		elName.addEventListener("click", nameFunction);
 	});
@@ -88,8 +88,7 @@ function ageFunction(e) {
 	let elAge = e.currentTarget;
 	let personsAge = prompt("You can edit the age here!", elAge.textContent);
 	if (!personsAge) {
-		alert("Please type your age.");
-		personsAge = prompt("You can edit the age here!", elAge.textContent);
+		return;
 	}
 	elAge.innerHTML = personsAge;
 }
