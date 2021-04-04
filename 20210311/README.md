@@ -5,7 +5,7 @@
 
 # Sort method
 
-JS の`arr.sort()`は必ず比較関数`comparator`を与えること。
+JS の`arr.sort()`は必ず比較関数(comparator)を与えること。
 
 ```js
 // Don't 👎
@@ -22,6 +22,24 @@ arr = ["û", "ú", "ù", "ü"];
 arr.sort((v, u) => v.localeCompare(u));
 // ["ú", "ù", "û", "ü"]
 ```
+
+## Caution!!
+
+Use `arr.sort((v, u) => v - u);` is for `Number`.
+
+- 123 -> Number
+
+```JS
+1 + 1 // 2
+```
+
+- '123' -> String
+
+```JS
+'1' + '1' // '11'
+```
+
+If you want to sort `String`, use `arr.sort((v, u) => v.localeCompare(u));`
 
 # ボタンを押すと昇順・降順に並び替え
 
