@@ -19,11 +19,15 @@ addList.addEventListener("submit", (e) => {
 	ul.appendChild(li);
 
 
-	let elName = li.querySelector("#elName");
-	let elAge = li.querySelector("#elAge");
+	let elName = li.querySelectorAll("#elName");
+	let elAge = li.querySelectorAll("#elAge");
 	elName.forEach(elName => {
 		elName.addEventListener("click", nameFunction);
 	});
+
+	// console.log(typeof elAge);
+	// console.log(elAge.value);
+	// console.log(elAge.valueAsNumber);
 
 	elAge.forEach(elAge => {
 		elAge.addEventListener("click", ageFunction);
