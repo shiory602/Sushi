@@ -18,20 +18,11 @@ addList.addEventListener("submit", (e) => {
 	li.innerHTML = `<p id="elName">${names.value}</p>(<span id="elAge"')">${age.value}</span>)`;
 	ul.appendChild(li);
 
-
-	let elName = li.querySelectorAll("#elName");
+	let elName = li.querySelector("#elName");
 	let elAge = li.querySelector("#elAge");
-	elName.forEach(elName => {
-		elName.addEventListener("click", nameFunction);
-	});
 
-	// console.log(typeof elAge);
-	// console.log(elAge.value);
-	// console.log(elAge.valueAsNumber);
-
-	elAge.forEach(elAge => {
-		elAge.addEventListener("click", ageFunction);
-	})
+	elName.addEventListener("click", nameFunction);
+	elAge.addEventListener("click", ageFunction);
 
 	let obj = {
 		key: age.value,
@@ -46,7 +37,6 @@ addList.addEventListener("submit", (e) => {
 // Add event ///////////////////////////////////////////
 ascBtn.addEventListener("click", () => {
 	arr.sort(sortAsc);
-	console.log(arr);
 	for (let i = 0; i < arr.length; i++) {
 		ul.appendChild(arr[i].value);
 	}
