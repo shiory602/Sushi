@@ -25,21 +25,21 @@ arr.sort((v, u) => v.localeCompare(u));
 
 ## Caution!!
 
-Use `arr.sort((v, u) => v - u);` is for `Number`.
+Use `arr.sort((v, u) => v - u);` is for `number`.
 
-- 123 -> Number
+- 123 -> number
 
 ```JS
 1 + 1 // 2
 ```
 
-- '123' -> String
+- '123' -> string
 
 ```JS
 '1' + '1' // '11'
 ```
 
-If you want to sort `String`, use `arr.sort((v, u) => v.localeCompare(u));`
+If you want to sort `string`, use `arr.sort((v, u) => v.localeCompare(u));`
 
 ### Tips💡
 
