@@ -33,9 +33,11 @@ button {
     border: 1px solid darkgray;
     outline: none;
 }
+
 button:hover {
     filter: brightness(90%);
 }
+
 button:active {
     box-shadow: none;
     position: relative;
@@ -61,7 +63,8 @@ li {
     border-bottom: 1px solid lightblue;
 }
 
-#list-name:hover, #list-age:hover {
+#list-name:hover,
+#list-age:hover {
     cursor: pointer;
     color: dodgerblue;
 }
