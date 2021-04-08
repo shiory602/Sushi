@@ -2,14 +2,39 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Storage of information</title>
-	<link rel="stylesheet" href="./css/style.css">
+	<!-- CSS -->
+	<link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
+	<main>
+		<section id="top-wrapper">
+			<form id="addBtn">
+				<div class="name-field">
+					<label for="name">Name: </label>
+					<input type="text" name="name" id="name">
+				</div>
+				<div class="age-field">
+					<label for="age">Age: </label>
+					<input type="number" name="age" id="age" min="0">
+				</div>
+				<button type="submit" id="btn">Add</button>
+			</form>
+
+			<div class="order">
+				<button id="ascBtn" title="ascending order">↓</button>
+				<button id="dscBtn" title="descending order">↑</button>
+			</div>
+		</section>
+		<div id="mddle-wrapper">
+			<div id="list"></div>
+		</div>
+
+	</main>
 
 	<script type="text/javascript" src="./js/main.js"> </script>
 </body>
