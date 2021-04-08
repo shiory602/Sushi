@@ -1,3 +1,4 @@
+KEY = 'super-cool-data';
 const nameItem = document.querySelector('#name');
 const ageItem = document.querySelector('#age');
 const ascBtn = document.querySelector('#ascBtn');
@@ -27,6 +28,14 @@ addBtn.addEventListener('submit', e => {
     }
     arr.push(obj);
 
+    // 保存
+    data = [{
+        name: nameItem.value,
+        age: ageItem.value,
+    }];
+    json = JSON.stringify(data);
+    window.localStorage.setItem(KEY, json);
+
     nameItem.value = '';
     ageItem.value = '';
 });
@@ -35,9 +44,6 @@ addBtn.addEventListener('submit', e => {
 // Sort data belong to the order
 ascBtn.addEventListener('click', () => {
     arr.sort(sortAsc);
-    // for(let item of arr) {
-    //     ul.appendChild(item.value);
-    // }
     arr.map(item => ul.appendChild(item.value));
 });
 const sortAsc = (a, b) => {
@@ -47,9 +53,6 @@ const sortAsc = (a, b) => {
 dscBtn.addEventListener('click', () => {
     arr.sort(sortDsc);
     arr.map(item => ul.appendChild(item.value));
-    // for (let i = 0; i < arr.length; i++) {
-    //     ul.appendChild(arr[i].value);
-    // }
 });
 const sortDsc = (a, b) => {
     return b.key - a.key;
@@ -79,16 +82,6 @@ const editAge = e => {
 
 //////////////////////////////////////////////////
 
-KEY = 'super-cool-data';
-
-// 保存
-data = [{
-    name: "Alice",
-    age: 12
-}];
-
-json = JSON.stringify(data);
-window.localStorage.setItem(KEY, json);
 
 // 取得
 json = window.localStorage.getItem(KEY);
