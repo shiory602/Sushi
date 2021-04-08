@@ -7,12 +7,15 @@
 
 この API が使えます。
 
-- 文字列を保存  https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
-  - 保存  window.localStorage.setItem('message', 'Hello World!')
-  - 取得  message = window.localStorage.getItem('message')
-- オブジェクトと文字列を変換  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON - 文字列 ← オブジェクト  json = JSON.stringify([{ name: "Alice", age: 12 }]) - オブジェクト ← 文字列  data = JSON.parse("[{ \"name\": \"Alice\", \"age\": 12 }]")
-  DevTools のコンソールとかで試してみてください。
-  画面を再読み込みしても情報が保存されています。
+- (文字列を保存)[https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage]
+- 保存  `window.localStorage.setItem('message', 'Hello World!')`
+- 取得  `message = window.localStorage.getItem('message')`
+- (オブジェクトと文字列を変換)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON]
+- 文字列 ← オブジェクト  `json = JSON.stringify([{ name: "Alice", age: 12 }])`
+- オブジェクト ← 文字列  `data = JSON.parse("[{ \"name\": \"Alice\", \"age\": 12 }]")`
+
+DevTools のコンソールとかで試してみてください。
+画面を再読み込みしても情報が保存されています。
 
 ```JS
 KEY = 'super-cool-data';
