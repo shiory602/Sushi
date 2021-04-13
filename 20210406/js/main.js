@@ -1,44 +1,129 @@
-KEY = 'super-cool-data';
+/**
+ * @typedef {{ name: string }} Item
+ */
+const DATA_KEY = 'neko-mo-kawaii';
+const elLoad = document.querySelector('#elLoad');
+const elSave = document.querySelector('#elSave');
+const elDelete = document.querySelector('#elDelete');
+/** @type {HTMLFormElement} */
 const nameItem = document.querySelector('#name');
 const ageItem = document.querySelector('#age');
+const loadBtn = document.querySelector('#elLoad')
+const saveBtn = document.querySelector('#elSave')
+const deleteBtn = document.querySelector('#elDelete')
 const ascBtn = document.querySelector('#ascBtn');
 const dscBtn = document.querySelector('#dscBtn');
 const list = document.querySelector('#list');
 const ul = document.createElement('ul');
+/** @type {arr[]} */
 let arr = new Array();
+/** @type {item[]} */
+let listItems = [];
+
 list.appendChild(ul);
 
-addBtn.addEventListener('submit', e => {
-    e.preventDefault();
-    if (!nameItem.value || !ageItem.value) {
-        alert('Please fill out the forms :D');
-        return;
+main();
+
+function main() {
+    elSave.addEventListener('click', () => {
+        save(listItems);
+    });
+
+    elLoad.addEventListener('click', () => {
+        listItems = load();
+
+        render();
+    });
+
+    elDelete.addEventListener('click', () => {
+        deleteItems();
+    });
+
+    addBtn.addEventListener('submit', e => {
+        e.preventDefault();
+
+        if (!nameItem.value || !ageItem.value) {
+            alert('Please fill out the forms :D');
+            return;
+        }
+        const li = document.createElement('li');
+        li.innerHTML = `
+        <span id="list-name">${nameItem.value}</span>(<span id="list-age">${ageItem.value}</span>)`;
+        ul.appendChild(li);
+
+        const listName = li.querySelector('#list-name');
+        const listAge = li.querySelector('#list-age');
+
+        listName.addEventListener('click', editName);
+        listAge.addEventListener('click', editAge);
+
+        const obj = {
+            key: ageItem.value,
+            value: li,
+        }
+        arr.push(obj);
+
+
+        listItems.push(nameItem.value);
+        listItems.push(ageItem.value);
+
+        nameItem.value = '';
+        ageItem.value = '';
+    });
+}
+
+/**
+ * Save,
+ * @param {Item[]} data 
+ */
+function save(data) {
+    const json = JSON.stringify(data); //文字列 ← オブジェクト
+    window.localStorage.setItem(DATA_KEY, json); // 保存
+}
+
+/**
+ * Load,
+ * @returns {Item[]}
+ */
+function load() {
+    const json = window.localStorage.getItem(DATA_KEY); // 取得
+    const data = JSON.parse(json) || []; // オブジェクト ← 文字列
+    return data;
+}
+
+/**
+ * Delete,
+ * @returns {null}
+ */
+function deleteItems() {
+    if (localStorage.getItem('li') === null) {
+        alert('内容が保存されていません。');
+        return false;
     }
-    const li = document.createElement('li');
-    li.innerHTML = `
-    <span id="list-name">${nameItem.value}</span>(<span id="list-age">${ageItem.value}</span>)`;
-    ul.appendChild(li);
+    localStorage.removeItem('li');
+    alert('保存内容を削除しました。');
+}
 
-    li.querySelector('#list-name').addEventListener('click', editName)
-    li.querySelector('#list-age').addEventListener('click', editAge);
+/**
+ * 画面更新
+ */
+function render() {
+    // 全削除
+    list.innerHTML = '';
+    // 一覧項目を作成
+    listItems.forEach((item) => {
+        const el = document.createElement("li");
 
-    const obj = {
-        key: ageItem.value,
-        value: li,
-    }
-    arr.push(obj);
+        el.innerHTML = `
+        <span id="list-name">${item[0]}</span>(<span id="list-age">${item[1]}</span>)`;
 
-    // 保存
-    data = [{
-        name: nameItem.value,
-        age: ageItem.value,
-    }];
-    json = JSON.stringify(data);
-    window.localStorage.setItem(KEY, json);
+        list.append(el);
+    });
+}
 
-    nameItem.value = '';
-    ageItem.value = '';
-});
+
+
+////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////
 // Sort data belong to the order
@@ -82,7 +167,15 @@ const editAge = e => {
 
 //////////////////////////////////////////////////
 
+// KEY = 'super-cool-data';
+// // 保存
+// data = [{
+//     name: nameItem.value,
+//     age: ageItem.value,
+// }];
+// json = JSON.stringify(data);
+// window.localStorage.setItem(KEY, json);
 
-// 取得
-json = window.localStorage.getItem(KEY);
-data = JSON.parse(json);
+// // 取得
+// json = window.localStorage.getItem(KEY);
+// data = JSON.parse(json);

@@ -21,8 +21,8 @@ form {
     text-align: right;
 }
 
-#btn {
-    margin-top: 5px;
+#btn, .save {
+    margin: 15px auto;
 }
 
 button {
