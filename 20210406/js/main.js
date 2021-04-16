@@ -14,13 +14,10 @@ const deleteBtn = document.querySelector('#elDelete')
 const ascBtn = document.querySelector('#ascBtn');
 const dscBtn = document.querySelector('#dscBtn');
 const list = document.querySelector('#list');
-const ul = document.createElement('ul');
 /** @type {arr[]} */
 let arr = new Array();
 /** @type {item[]} */
 let listItems = [];
-
-list.appendChild(ul);
 
 main();
 
@@ -49,7 +46,7 @@ function main() {
         const li = document.createElement('li');
         li.innerHTML = `
         <span id="list-name">${nameItem.value}</span>(<span id="list-age">${ageItem.value}</span>)`;
-        ul.appendChild(li);
+        list.appendChild(li);
 
         const listName = li.querySelector('#list-name');
         const listAge = li.querySelector('#list-age');
@@ -95,10 +92,10 @@ function load() {
  * @returns {null}
  */
 function deleteItems() {
-    if (localStorage.getItem('li') === null) {
-        alert('内容が保存されていません。');
-        return false;
-    }
+    // if (localStorage.getItem('li') === null) {
+    //     alert('内容が保存されていません。');
+    //     return false;
+    // }
     localStorage.removeItem('li');
     alert('保存内容を削除しました。');
 }
@@ -128,7 +125,7 @@ function render() {
 // Sort data belong to the order
 ascBtn.addEventListener('click', () => {
     arr.sort(sortAsc);
-    arr.map(item => ul.appendChild(item.value));
+    arr.map(item => list.appendChild(item.value));
 });
 const sortAsc = (a, b) => {
     return a.key - b.key;
@@ -136,7 +133,7 @@ const sortAsc = (a, b) => {
 
 dscBtn.addEventListener('click', () => {
     arr.sort(sortDsc);
-    arr.map(item => ul.appendChild(item.value));
+    arr.map(item => list.appendChild(item.value));
 });
 const sortDsc = (a, b) => {
     return b.key - a.key;
