@@ -64,8 +64,7 @@ function main() {
         arr.push(obj);
 
 
-        listItems.push(nameItem.value);
-        listItems.push(ageItem.value);
+        listItems.push([nameItem.value, ageItem.value]);
 
         nameItem.value = '';
         ageItem.value = '';
