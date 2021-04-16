@@ -92,11 +92,13 @@ function load() {
  * @returns {null}
  */
 function deleteItems() {
-    // if (localStorage.getItem('li') === null) {
-    //     alert('内容が保存されていません。');
-    //     return false;
-    // }
-    localStorage.removeItem('li');
+    // const json = window.localStorage.getItem(DATA_KEY); // 取得
+    // const data = JSON.parse(json) || []; // オブジェクト ← 文字列
+    if (localStorage.getItem('neko-mo-kawaii') === null) {
+        alert('内容が保存されていません。');
+        return false;
+    }
+    localStorage.removeItem('neko-mo-kawaii');
     alert('保存内容を削除しました。');
 }
 
@@ -114,6 +116,18 @@ function render() {
         <span id="list-name">${item[0]}</span>(<span id="list-age">${item[1]}</span>)`;
 
         list.append(el);
+
+        const listName = el.querySelector('#list-name');
+        const listAge = el.querySelector('#list-age');
+
+        listName.addEventListener('click', editName);
+        listAge.addEventListener('click', editAge);
+
+        const obj = {
+            key: item[1],
+            value: el,
+        }
+        arr.push(obj);
     });
 }
 
@@ -160,18 +174,3 @@ const editAge = e => {
     elAge.innerHTML = ageValue;
 }
 //////////////////////////////////////////////////
-
-//////////////////////////////////////////////////
-
-// KEY = 'super-cool-data';
-// // 保存
-// data = [{
-//     name: nameItem.value,
-//     age: ageItem.value,
-// }];
-// json = JSON.stringify(data);
-// window.localStorage.setItem(KEY, json);
-
-// // 取得
-// json = window.localStorage.getItem(KEY);
-// data = JSON.parse(json);
