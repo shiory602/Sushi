@@ -59,7 +59,7 @@ function main() {
             value: li,
         }
         arr.push(obj);
-        console.log(arr);
+    
 
 
         listItems.push([nameItem.value, ageItem.value]);
@@ -93,14 +93,13 @@ function load() {
  * @returns {null}
  */
 function deleteItems() {
-    // const json = window.localStorage.getItem(DATA_KEY); // 取得
-    // const data = JSON.parse(json) || []; // オブジェクト ← 文字列
     if (localStorage.getItem('neko-mo-kawaii') === null) {
         alert('内容が保存されていません。');
         return false;
     }
     localStorage.removeItem('neko-mo-kawaii');
     alert('保存内容を削除しました。');
+
 }
 
 /**
@@ -125,7 +124,7 @@ function render() {
             value: li,
         }
         arr.push(obj);
-        console.log(arr);
+    
 
         const listName = li.querySelector('#list-name');
         const listAge = li.querySelector('#list-age');
@@ -143,8 +142,6 @@ function render() {
 // Sort data belong to the order
 ascBtn.addEventListener('click', () => {
     arr.sort(sortAsc);
-    console.log(arr);
-    // list.innerHTML = '';
     arr.map(item => list.appendChild(item.value));
 });
 const sortAsc = (a, b) => {
@@ -153,8 +150,6 @@ const sortAsc = (a, b) => {
 
 dscBtn.addEventListener('click', () => {
     arr.sort(sortDsc);
-    console.log(arr);
-    // list.innerHTML = '';
     arr.map(item => list.appendChild(item.value));
 });
 const sortDsc = (a, b) => {
