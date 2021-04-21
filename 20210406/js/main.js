@@ -109,6 +109,7 @@ function deleteItems() {
 function render() {
     // 全削除
     list.innerHTML = '';
+    arr = [];
     // 一覧項目を作成
     listItems.forEach((item) => {
         const li = document.createElement("li");
@@ -118,6 +119,13 @@ function render() {
         `;
 
         list.append(li);
+
+        const obj = {
+            key: item[1],
+            value: li,
+        }
+        arr.push(obj);
+        console.log(arr);
 
         const listName = li.querySelector('#list-name');
         const listAge = li.querySelector('#list-age');
@@ -136,6 +144,7 @@ function render() {
 ascBtn.addEventListener('click', () => {
     arr.sort(sortAsc);
     console.log(arr);
+    // list.innerHTML = '';
     arr.map(item => list.appendChild(item.value));
 });
 const sortAsc = (a, b) => {
@@ -145,6 +154,7 @@ const sortAsc = (a, b) => {
 dscBtn.addEventListener('click', () => {
     arr.sort(sortDsc);
     console.log(arr);
+    // list.innerHTML = '';
     arr.map(item => list.appendChild(item.value));
 });
 const sortDsc = (a, b) => {
