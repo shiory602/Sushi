@@ -59,6 +59,7 @@ function main() {
             value: li,
         }
         arr.push(obj);
+        console.log(arr);
 
 
         listItems.push([nameItem.value, ageItem.value]);
@@ -110,24 +111,19 @@ function render() {
     list.innerHTML = '';
     // 一覧項目を作成
     listItems.forEach((item) => {
-        const el = document.createElement("li");
+        const li = document.createElement("li");
 
-        el.innerHTML = `
-        <span id="list-name">${item[0]}</span>(<span id="list-age">${item[1]}</span>)`;
+        li.innerHTML = `
+        <span id="list-name">${item[0]}</span>(<span id="list-age">${item[1]}</span>)
+        `;
 
-        list.append(el);
+        list.append(li);
 
-        const listName = el.querySelector('#list-name');
-        const listAge = el.querySelector('#list-age');
+        const listName = li.querySelector('#list-name');
+        const listAge = li.querySelector('#list-age');
 
         listName.addEventListener('click', editName);
         listAge.addEventListener('click', editAge);
-
-        const obj = {
-            key: item[1],
-            value: el,
-        }
-        arr.push(obj);
     });
 }
 
@@ -139,6 +135,7 @@ function render() {
 // Sort data belong to the order
 ascBtn.addEventListener('click', () => {
     arr.sort(sortAsc);
+    console.log(arr);
     arr.map(item => list.appendChild(item.value));
 });
 const sortAsc = (a, b) => {
@@ -147,6 +144,7 @@ const sortAsc = (a, b) => {
 
 dscBtn.addEventListener('click', () => {
     arr.sort(sortDsc);
+    console.log(arr);
     arr.map(item => list.appendChild(item.value));
 });
 const sortDsc = (a, b) => {
