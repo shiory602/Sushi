@@ -1,28 +1,29 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(()=> {
-    if(count < 0) setCount(0);
-  }, [count])
+export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+  }
   
-  function addCount() {
-    setCount(count + 1);
+  addCount = () => {
+    this.setState({count: this.state.count + 1});
   }
 
-  function resetCount() {
-    setCount(0);
+  resetCount = () => {
+    this.setState({count: this.state.count = 0});
   }
 
-  return (
-    <div className="App">
-      <button onClick={ addCount }>+1</button>
-      <button onClick={ resetCount }>Reset</button>
-      <h1>Count: { count }</h1>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <button onClick={ this.addCount }>+1</button>
+        <button onClick={ this.resetCount }>Reset</button>
+        <h1>Count: { this.state.count }</h1>
+      </div>
+    );
+  }
 }
-
-export default App;
