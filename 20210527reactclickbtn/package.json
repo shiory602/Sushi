@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "hahaha",
+=======
+  "name": "20210528twocpt",
+>>>>>>> a1f0c99ad7810dd67a5279ece519f5ccddedd384
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import './App.css';
 
@@ -27,3 +28,20 @@ export default class App extends React.Component {
     );
   }
 }
+=======
+import "./App.css";
+import Functioncpt from "./Components/Functioncpt";
+import Classcpt from "./Components/Classcpt";
+
+function App() {
+  return (
+    <div className="App">
+      <Functioncpt />
+      <hr />
+      <Classcpt />
+    </div>
+  );
+}
+
+export default App;
+>>>>>>> a1f0c99ad7810dd67a5279ece519f5ccddedd384

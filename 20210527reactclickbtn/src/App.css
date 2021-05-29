@@ -1,4 +1,5 @@
 .App {
+<<<<<<< HEAD
     width: 100%;
     margin: 100px auto;
     text-align: center;
@@ -16,4 +17,8 @@ button:active {
     position: relative;
     top: 3px;
     box-shadow: none;
+=======
+  margin: 100px auto;
+  text-align: center;
+>>>>>>> a1f0c99ad7810dd67a5279ece519f5ccddedd384
 }
