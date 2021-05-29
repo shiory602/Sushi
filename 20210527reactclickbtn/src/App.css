@@ -1,0 +1,19 @@
+.App {
+    width: 100%;
+    margin: 100px auto;
+    text-align: center;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 30px;
+    box-shadow: 0 3px 0 gray;
+}
+button:hover {
+    filter: grayscale(60%);
+}
+button:active {
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
