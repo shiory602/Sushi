@@ -1,0 +1,52 @@
+# 概要
+
+ドロップダウンがカルーセルの下に潜る
+
+# 想定手順
+
+1. トップページを開く
+2. 上部メニュー Shop Collections へカーソルを載せる
+3. ドロップダウンが表示される
+
+# 課題
+
+3の時点でドロップダウンの全体が表示されない。添付画像参照
+
+# 環境
+
+- Windows 10
+- MS Edge
+- `main` ブランチ最新版 `2b5bf99ae6164822be89b263d93d0f26a4b16ee4`
+
+# エラーなど
+
+画面でのエラー表示なし。
+
+コンソールには以下。
+
+```
+src/components/Cart/Cart.jsx
+  Line 14:7:   React Hook useEffect has a missing dependency: 'props'. Either include it or remove the dependency array. However, 'props' will change when *any* prop changes, so the preferred fix is to destructure the 'props' object outside of the useEffect call and refer to those specific props inside useEffect  react-hooks/exhaustive-deps
+```
+
+```
+Warning: Failed prop type: The prop `to` is marked as required in `Link`, but its value is `undefined`.
+    at http://localhost:3000/static/js/vendors~main.chunk.js:47009:31
+    at Header (http://localhost:3000/static/js/main.chunk.js:2556:96)
+```
+
+```
+Warning: Invalid DOM property `class`. Did you mean `className`?
+    at li
+    at ul
+    at div
+    at Header (http://localhost:3000/static/js/main.chunk.js:2556:96)
+```
+
+```
+Warning: Each child in a list should have a unique "key" prop.
+
+Check the render method of `Top`. See https://reactjs.org/link/warning-keys for more information.
+    at div
+    at Top (http://localhost:3000/static/js/main.chunk.js:5155:85)
+```
